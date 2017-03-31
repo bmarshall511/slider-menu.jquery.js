@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class="no-js no-svg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Slider Menu</title>
+
+<link href="jquery.slider-menu.css" rel="stylesheet">
+<link href="jquery.slider-menu.theme.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,600" rel="stylesheet">
+
+<style>
+/**
+ * Demo Styles
+ */
+body {
+  background-color: #252525;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+}
+h1 {
+  color: #fff;
+  text-align: center;
+  font-weight: 100;
+  margin-bottom: 0;
+}
+h1 small {
+  font-size: 14px;
+}
+.container {
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+}
+.slider {
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 5px;
+}
+.details,
+.copyright {
+  color: #fff;
+  font-size: 12px;
+}
+.details a,
+.copyright a {
+  text-decoration: none;
+  color: #00a52b;
+}
+.copyright {
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+.copyright a:hover {
+  text-decoration: underline;
+}
+.details {
+  padding-left: 15px;
+  margin-top: 30px;
+}
+</style>
+
+</head>
+<body>
+<main class="container" role="main">
+  <h1>Slider Menu<sup><small>v1.0.0</small></sup></h1>
+  <p class="copyright">by <a href="https://benmarshall.me">Ben Marshall</a></p>
+  <div class="slider">
+
+    <ul class="my-menu">
+      <li><a href="#">Home</a>
+      <li><a href="#">Blog</a>
+        <ul>
+          <li data-vertical="true"><a href="#">Featured Stories</a>
+            <ul>
+              <li><a href="#">The Tale of The Slider Menu</a>
+              <li><a href="#">Slider Menu - On Fire!</a>
+              <li><a href="#">Do you slide?!</a>
+            </ul>
+          <li><a href="#">Tags</a>
+            <ul>
+              <li><a href="#">Tag 1</a>
+              <li><a href="#">Tag 2</a>
+              <li><a href="#">Tag 3</a>
+            </ul>
+          <li><a href="#">Categories</a>
+            <ul>
+              <li><a href="#">Category 1</a>
+              <li><a href="#">Category 2</a>
+              <li><a href="#">Category 3</a>
+            </ul>
+        </ul>
+      <li data-vertical="true"><a href="#">About<span class="slider-menu__desc">I'm a little&hellip; special!</span></a>
+        <ul>
+          <li><a href="#">Who We Are</a>
+          <li><a href="#">What We Do</a>
+          <li><a href="#">How to Help</a>
+        </ul>
+      <li><a href="#">Contact</a>
+    </ul><!-- .my-menu -->
+
+  </div><!-- .slider -->
+  <ul class="details">
+    <li>Responsive with an optional theme (shown above)
+    <li>Works with any ordered or unordered list menus
+    <li>Tested in Chrome 56, FF 51, Safari 10, IE 10
+    <li>Meets <a href="https://www.w3.org/WAI/tutorials/menus/" target="_blank">Web Accessibility</a> guidelines
+    <li>Semantic markup for enhanced SEO
+  </ul>
+</main><!-- .container -->
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="jquery.slider-menu.js"></script>
+
+<script>
+( function( $ ) {
+  $( function() {
+    $( '.my-menu' ).sliderMenu();
+  });
+})( jQuery );
+</script>
+</body>
+</html>

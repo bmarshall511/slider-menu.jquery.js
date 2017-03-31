@@ -1,0 +1,49 @@
+/**
+ * Slider Menu Styles
+ *
+ * @version 1.0.0
+ */
+.slider-menu {
+  overflow: hidden;
+}
+
+.slider-menu__container {
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: left .2s;
+}
+
+.slider-menu__menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slider-menu__menu .slider-menu__menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .2s;
+  visibility: hidden;
+}
+
+.slider-menu__menu .slider-menu--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-menu__item--vertical .slider-menu__back {
+  display: none;
+}
+
+.slider-menu__item--vertical .slider-menu__menu {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: none;
+  visibility: visible;
+  opacity: 1;
+}
