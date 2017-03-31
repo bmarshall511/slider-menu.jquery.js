@@ -1,0 +1,39 @@
+{
+  "name": "slider-menu",
+  "title": "jQuery Slider Menu",
+  "description": "Tired of those standard click ‘n drop menus? Need something with a little more pazazz? Yes & yes! Here’s the answer to your prayers, the jQuery Slider Menu.",
+  "keywords": [
+    "jquery",
+    "jquery-plugin",
+    "frontend",
+    "frontend-web",
+    "frontend-developer",
+    "menu",
+    "menu-navigation"
+  ],
+  "version": "1.0.0",
+  "author": {
+    "name": "Ben Marshall",
+    "url": "https://benmarshall.me"
+  },
+  "maintainers": [
+    {
+      "name": "Ben Marshall",
+      "email": "bmarshall511@gmail.com",
+      "url": "https://benmarshall.me"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://choosealicense.com/licenses/mit/"
+    }
+  ],
+  "bugs": "https://github.com/bmarshall511/slider-menu.jquery.js/issues",
+    "homepage": "https://bmarshall511.github.io/slider-menu.jquery.js/",
+    "docs": "https://benmarshall.me/jquery-slider-menu/",
+    "download": "http://code.jquery.com/#slider-menu",
+    "dependencies": {
+      "jquery": ">=1.5"
+    }
+}
