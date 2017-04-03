@@ -8,17 +8,18 @@
 
 $primary-color:   #00a52b !default;
 $secondary-color: #252525 !default;
+$bg-color:        #fff    !default;
 
 .slider-menu {
   text-transform: uppercase;
   font-size: 13px;
-  background-color: #fff;
+  background-color: $bg-color;
   font-weight: 600;
 
   li {
     border-bottom: 1px solid rgba($secondary-color, .1);
 
-    &:last-child {
+    &::last-child {
       border-bottom: 0;
     }
   }
@@ -40,25 +41,25 @@ $secondary-color: #252525 !default;
       vertical-align: middle;
       font-weight: normal;
 
-      &:before {
+      &::before {
         content: '- ';
       }
     }
 
-    &:hover,
-    &:active {
-      color: #fff;
+    &::hover,
+    &::active {
+      color: $bg-color;
 
       span {
-        color: #fff;
+        color: $bg-color;
       }
     }
 
-    &:hover {
+    &::hover {
       background-color: $primary-color;
     }
 
-    &:active {
+    &::active {
       background-color: $secondary-color;
     }
   }
@@ -88,15 +89,15 @@ $secondary-color: #252525 !default;
     @include rotate(180deg);
   }
 
-  &:hover {
+  &::hover {
     span {
-      background-color: #fff;
+      background-color: $bg-color;
     }
   }
 }
 
 .slider-menu-children > a {
-  &:before {
+  &::before {
     float: right;
     content: "";
     display: block;
@@ -114,9 +115,9 @@ $secondary-color: #252525 !default;
     background-color: $secondary-color;
   }
 
-  &:hover {
-    &:before {
-      background-color: #fff;
+  &::hover {
+    &::before {
+      background-color: $bg-color;
     }
   }
 }
@@ -131,8 +132,8 @@ $secondary-color: #252525 !default;
       font-weight: 300;
       font-size: 12px;
 
-      &:hover {
-        color: #fff;
+      &::hover {
+        color: $bg-color;
       }
     }
   }
@@ -143,22 +144,18 @@ $secondary-color: #252525 !default;
 
   &.slider-menu-children {
     & > a {
-      &:before {
-        -ms-transform: rotate(90deg);
-        -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
+      &::before {
+        @include rotate(90deg);
         margin-top: 6px;
       }
 
       &.slider-menu-open {
         background-color: $primary-color;
-        color: #fff;
+        color: $bg-color;
 
-        &:before {
-          background-color: #fff;
-          -ms-transform: rotate(270deg); /* IE 9 */
-          -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
-          transform: rotate(270deg);
+        &::before {
+          background-color: $bg-color;
+          @include rotate(270deg);
           margin-top: 4px;
         }
       }
@@ -171,7 +168,7 @@ $secondary-color: #252525 !default;
   .slider-menu-children > a:hover:before,
   [data-vertical="true"].slider-menu-children > a.slider-menu-open:before,
   .slider-menu-back span {
-    background-color: transparent !important;
+    background-color: transparent;
     background-repeat: no-repeat;
   }
 

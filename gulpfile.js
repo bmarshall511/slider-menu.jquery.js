@@ -47,7 +47,6 @@ gulp.task('scripts', ['jscomplexity'], function() {
     source + '/js/slider-menu.jquery.js'
   ])
     .pipe(concat('slider-menu.jquery.js'))
-    .pipe(gulp.dest(paths.js))
     .pipe(rename('slider-menu.jquery.min.js'))
     .pipe(stripDebug())
     .pipe(uglify())
@@ -71,7 +70,10 @@ gulp.task('compass', function() {
       console.log(error);
       this.emit('end');
     })
-    .pipe(prefix(["last 1 version", "> 1%", "ie 9"]))
+    .pipe(prefix({
+      browsers: ['last 3 versions', '> 1%', 'ie 9'],
+      cascade: false
+    }))
     .pipe(cleanCSS({
       compatibility: 'ie9'
     }, function(details) {
