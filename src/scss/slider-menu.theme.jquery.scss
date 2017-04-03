@@ -1,53 +1,50 @@
-/**
- * jQuery Slider Menu Theme Styles
- *
- * @since 1.0.0
- */
+// jQuery Slider Menu Theme Styles
 
-@import "compass";
+@import 'compass';
 
 $primary-color:   #00a52b !default;
 $secondary-color: #252525 !default;
 $bg-color:        #fff    !default;
 
 .slider-menu {
-  text-transform: uppercase;
-  font-size: 13px;
   background-color: $bg-color;
+  font-size: 13px;
   font-weight: 600;
+  text-transform: uppercase;
 
   li {
     border-bottom: 1px solid rgba($secondary-color, .1);
 
-    &::last-child {
+    &:last-child {
       border-bottom: 0;
     }
   }
 
   a {
-    display: block;
-    text-decoration: none;
     color: $secondary-color;
+    display: block;
     padding: 10px 15px;
+    text-decoration: none;
     transition: all .2s;
 
     span {
+      color: $primary-color;
       display: inline-block;
       font-size: .8em;
-      text-transform: none;
-      color: $primary-color;
-      transition: color .2s;
-      margin-left: 5px;
-      vertical-align: middle;
       font-weight: normal;
+      margin-left: 5px;
+      text-transform: none;
+      transition: color .2s;
+      vertical-align: middle;
+
 
       &::before {
         content: '- ';
       }
     }
 
-    &::hover,
-    &::active {
+    &:hover,
+    &:active {
       color: $bg-color;
 
       span {
@@ -55,11 +52,11 @@ $bg-color:        #fff    !default;
       }
     }
 
-    &::hover {
+    &:hover {
       background-color: $primary-color;
     }
 
-    &::active {
+    &:active {
       background-color: $secondary-color;
     }
   }
@@ -68,28 +65,27 @@ $bg-color:        #fff    !default;
 .slider-menu-back {
   background-color: rgba($primary-color, .05);
   color: $secondary-color;
-  transition: color .2s;
   font-weight: 300;
-  padding-top: 12px;
   padding-bottom: 13px;
+  padding-top: 12px;
+  transition: color .2s;
 
   span {
-    display: block;
-    width: 16px;
-    height: 16px;
+    @include rotate(180deg);
+    background-color: rgba($secondary-color, .3);
     color: transparent;
-
+    display: block;
+    height: 16px;
     -moz-mask-image: url('../img/arrow.svg');
     -webkit-mask-image: url('../img/arrow.svg');
     mask-image: url('../img/arrow.svg');
     -moz-mask-size: cover;
     -webkit-mask-size: cover;
     mask-size: cover;
-    background-color: rgba($secondary-color, .3);
-    @include rotate(180deg);
+    width: 16px;
   }
 
-  &::hover {
+  &:hover {
     span {
       background-color: $bg-color;
     }
@@ -98,24 +94,23 @@ $bg-color:        #fff    !default;
 
 .slider-menu-children > a {
   &::before {
-    float: right;
-    content: "";
+    background-color: $secondary-color;
+    content: '';
     display: block;
-    width: 12px;
+    float: right;
     height: 12px;
     margin-top: 4px;
-    transition: transform .2s, margin-top .2s;
-
     -moz-mask-image: url('../img/arrow.svg');
     -webkit-mask-image: url('../img/arrow.svg');
     mask-image: url('../img/arrow.svg');
     -moz-mask-size: cover;
     -webkit-mask-size: cover;
     mask-size: cover;
-    background-color: $secondary-color;
+    transition: transform .2s, margin-top .2s;
+    width: 12px;
   }
 
-  &::hover {
+  &:hover {
     &::before {
       background-color: $bg-color;
     }
@@ -128,11 +123,11 @@ $bg-color:        #fff    !default;
 
     a {
       color: $primary-color;
-      text-transform: none;
-      font-weight: 300;
       font-size: 12px;
+      font-weight: 300;
+      text-transform: none;
 
-      &::hover {
+      &:hover {
         color: $bg-color;
       }
     }
@@ -143,7 +138,7 @@ $bg-color:        #fff    !default;
   }
 
   &.slider-menu-children {
-    & > a {
+    > a {
       &::before {
         @include rotate(90deg);
         margin-top: 6px;
@@ -154,8 +149,8 @@ $bg-color:        #fff    !default;
         color: $bg-color;
 
         &::before {
-          background-color: $bg-color;
           @include rotate(270deg);
+          background-color: $bg-color;
           margin-top: 4px;
         }
       }

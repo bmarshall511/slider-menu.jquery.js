@@ -19,13 +19,13 @@
     list-style: none;
 
     ul {
+      left: 100%;
+      opacity: 0;
       position: absolute;
       top: 0;
-      left: 100%;
-      width: 100%;
-      opacity: 0;
       transition: opacity .2s;
       visibility: hidden;
+      width: 100%;
 
       &.slider-menu-active {
         opacity: 1;
@@ -41,12 +41,13 @@
       }
 
       ul {
+        display: none;
+        left: auto;
+        opacity: 1;
         position: relative;
         top: auto;
-        left: auto;
-        display: none;
         visibility: visible;
-        opacity: 1;
+
 
         &.slider-menu-active {
           display: block;
