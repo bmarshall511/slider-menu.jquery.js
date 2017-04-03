@@ -16,7 +16,7 @@
       var $menu = this.buildMenu( element.clone() );
       element.replaceWith(  $menu  );
 
-      $( $menu ).on( 'click', '.slider-menu__link', function( event ) {
+      $( $menu ).on( 'click', 'a', function( event ) {
         elements.$container  = $( this ).closest( '.slider-menu' );
         elements.$parentItem = $( this ).parent( 'li' );
         elements.$parentMenu = elements.$parentItem.parent( 'ul' );
@@ -36,8 +36,7 @@
 
       $( 'ul', $menu ).prepend( '<li><a href="#" class="slider-menu-back">' + settings.back + '</a>' )
                       .parent()
-                      .addClass( 'slider-menu--has-children' );
-      $( 'a', $menu ).addClass( 'slider-menu__link' );
+                      .addClass( 'slider-menu-children' );
       $nav.html( $menu );
       $newMenu.html( $nav );
 
@@ -59,24 +58,24 @@
     methods.toggleExpand = function( $link ) {
       if ( elements.$childMenu.is( ':visible' ) ) {
         // Hide
-        elements.$parentMenu.addClass( 'slider-menu--active' );
-        elements.$childMenu.removeClass( 'slider-menu--active' );
+        elements.$parentMenu.addClass( 'slider-menu-active' );
+        elements.$childMenu.removeClass( 'slider-menu-active' );
         elements.$container.css( 'height', elements.$parentMenu.height() );
 
-        $link.removeClass( 'slider-menu__link--active-link' );
+        $link.removeClass( 'slider-menu-open' );
       } else {
         // Show
-        elements.$childMenu.addClass( 'slider-menu--active' );
+        elements.$childMenu.addClass( 'slider-menu-active' );
         elements.$container.css( 'height', elements.$parentMenu.height() );
 
-        $link.addClass( 'slider-menu__link--active-link' );
+        $link.addClass( 'slider-menu-open' );
       }
     };
 
     methods.slideController = function( $link ) {
-      $( '[data-vertical="true"] ul', elements.$container ).removeClass( 'slider-menu--active' );
-      $( '[data-vertical="true"] .slider-menu__link', elements.$container ).removeClass( 'slider-menu__link--active-link' );
-      elements.$parentMenu.removeClass( 'slider-menu--active' );
+      $( '[data-vertical="true"] ul', elements.$container ).removeClass( 'slider-menu-active' );
+      $( '[data-vertical="true"] a', elements.$container ).removeClass( 'slider-menu-open' );
+      elements.$parentMenu.removeClass( 'slider-menu-active' );
 
       if ( $link.hasClass( 'slider-menu-back' ) ) {
         methods.slide( $link, true );
@@ -90,8 +89,8 @@
           $activeMenu = back ? elements.$parentMenu.parent().parent() : $( '> ul', elements.$parentItem ),
           currentLeft = back ? parseInt( $nav.attr( 'data-left' ), 10 ) + 100 : parseInt( $nav.attr( 'data-left' ), 10 ) - 100;
 
-      $activeMenu.addClass( 'slider-menu--active' )
-                 .parents( 'ul' ).addClass( 'slider-menu--active' );
+      $activeMenu.addClass( 'slider-menu-active' )
+                 .parents( 'ul' ).addClass( 'slider-menu-active' );
 
       elements.$container.css( 'height', $activeMenu.outerHeight() );
 

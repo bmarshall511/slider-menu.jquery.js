@@ -27,7 +27,7 @@
       transition: opacity .2s;
       visibility: hidden;
 
-      &.slider-menu--active {
+      &.slider-menu-active {
         opacity: 1;
         visibility: visible;
       }
@@ -48,7 +48,7 @@
         visibility: visible;
         opacity: 1;
 
-        &.slider-menu--active {
+        &.slider-menu-active {
           display: block;
         }
       }
