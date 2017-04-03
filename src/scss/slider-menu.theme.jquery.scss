@@ -159,15 +159,15 @@ $bg-color:        #fff    !default;
 }
 
 @-moz-document url-prefix() {
-  .slider-menu-children > a:before,
-  .slider-menu-children > a:hover:before,
-  [data-vertical="true"].slider-menu-children > a.slider-menu-open:before,
+  .slider-menu-children > a::before,
+  .slider-menu-children > a:hover::before,
+  [data-vertical="true"].slider-menu-children > a.slider-menu-open::before,
   .slider-menu-back span {
     background-color: transparent;
     background-repeat: no-repeat;
   }
 
-  .slider-menu-children > a:before,
+  .slider-menu-children > a::before,
   .slider-menu-back span {
     background-image: url('../img/arrow.svg');
   }
