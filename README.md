@@ -36,7 +36,7 @@ Check out the [Contributing Guidelines](CONTRIBUTING.md).
 
 ## Security
 
-For vulnerability reports, send an e-mail to `me at benmarshall dot me`
+For vulnerability reports, send an e-mail to `me at benmarshall dot me`.
 
 ## Manual release steps
 
