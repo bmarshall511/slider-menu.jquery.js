@@ -1,0 +1,4 @@
+install:
+  - bundle install
+  - npm install
+script: gulp
