@@ -12,7 +12,7 @@
     "menu-navigation",
     "ecosystem:jquery"
   ],
-  "version": "1.0.1",
+  "version": "1.2.0",
   "author": {
     "name": "Ben Marshall",
     "url": "https://benmarshall.me"
@@ -38,5 +38,22 @@
   "repository": "https://github.com/bmarshall511/slider-menu.jquery.js",
   "dependencies": {
     "jquery": ">=1.5"
+  },
+  "devDependencies": {
+    "compass-options": "^0.1.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-compass": "^2.1.0",
+    "gulp-complexity": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "^2.1.2",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "uglify": "^0.1.5"
   }
 }
