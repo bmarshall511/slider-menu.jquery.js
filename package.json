@@ -9,7 +9,8 @@
     "frontend-web",
     "frontend-developer",
     "menu",
-    "menu-navigation"
+    "menu-navigation",
+    "ecosystem:jquery"
   ],
   "version": "1.0.1",
   "author": {
@@ -19,7 +20,7 @@
   "maintainers": [
     {
       "name": "Ben Marshall",
-      "email": "bmarshall511@gmail.com",
+      "email": "me@benmarshall.me",
       "url": "https://benmarshall.me"
     }
   ],
@@ -29,11 +30,13 @@
       "url": "https://choosealicense.com/licenses/mit/"
     }
   ],
-  "bugs": "https://github.com/bmarshall511/slider-menu.jquery.js/issues",
-    "homepage": "https://bmarshall511.github.io/slider-menu.jquery.js/",
-    "docs": "https://benmarshall.me/jquery-slider-menu/",
-    "download": "http://code.jquery.com/#slider-menu",
-    "dependencies": {
-      "jquery": ">=1.5"
-    }
+  "bugs": {
+    "url": "https://github.com/bmarshall511/slider-menu.jquery.js/issues",
+    "email": "me@benmarshall.me"
+  },
+  "homepage": "https://bmarshall511.github.io/slider-menu.jquery.js/",
+  "repository": "https://github.com/bmarshall511/slider-menu.jquery.js",
+  "dependencies": {
+    "jquery": ">=1.5"
+  }
 }
