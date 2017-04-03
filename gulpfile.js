@@ -1,18 +1,18 @@
 'use strict';
 
-const gulp       = require('gulp'),
-     jshint      = require('gulp-jshint'),
-     stylish     = require('jshint-stylish'),
-     paths       = require('compass-options').dirs(),
-     rename      = require('gulp-rename'),
-     stripDebug  = require('gulp-strip-debug'),
-     uglify      = require('gulp-uglify'),
-     concat      = require('gulp-concat'),
-     compass     = require('gulp-compass'),
-     prefix      = require('gulp-autoprefixer'),
-     cleanCSS    = require('gulp-clean-css'),
-     complexity  = require('gulp-complexity'),
-     replace     = require('gulp-replace');
+var gulp       = require('gulp'),
+    jshint      = require('gulp-jshint'),
+    stylish     = require('jshint-stylish'),
+    paths       = require('compass-options').dirs(),
+    rename      = require('gulp-rename'),
+    stripDebug  = require('gulp-strip-debug'),
+    uglify      = require('gulp-uglify'),
+    concat      = require('gulp-concat'),
+    compass     = require('gulp-compass'),
+    prefix      = require('gulp-autoprefixer'),
+    cleanCSS    = require('gulp-clean-css'),
+    complexity  = require('gulp-complexity'),
+    replace     = require('gulp-replace');
 
 
 // Config Variables
