@@ -1,6 +1,7 @@
 # jQuery Slider Menu
 
 [![Code Climate](https://codeclimate.com/github/bmarshall511/slider-menu.jquery.js.svg)](https://codeclimate.com/github/bmarshall511/slider-menu.jquery.js)
+[![Build Status](https://travis-ci.org/bmarshall511/slider-menu.jquery.js.svg?branch=master)](https://travis-ci.org/bmarshall511/slider-menu.jquery.js)
 [![Join the chat at https://gitter.im/slider-menu-jquery-js/Lobby](https://badges.gitter.im/slider-menu-jquery-js/Lobby.svg)](https://gitter.im/slider-menu-jquery-js/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 > Tired of those standard click ‘n drop menus? Need something with a little more pazazz? Yes & yes! Here’s the answer to your prayers, the jQuery Slider Menu.
