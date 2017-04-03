@@ -9,7 +9,7 @@
 
 ### Direct download
 
-Download the script [here](https://github.com/bmarshall511/slider-menu.jquery.js/archive/master.zip) and include it (unless you are packaging scripts somehow else):
+Download the script [here](https://github.com/bmarshall511/slider-menu.jquery.js/archive/latest.zip) and include it (unless you are packaging scripts somehow else):
 
 ```html
 <script src="/path/to/slider-menu.jquery.js"></script>
