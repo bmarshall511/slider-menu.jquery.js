@@ -1,5 +1,7 @@
 # jQuery Slider Menu
 
+[![Code Climate](https://codeclimate.com/github/bmarshall511/slider-menu.jquery.js.svg)](https://codeclimate.com/github/bmarshall511/slider-menu.jquery.js)
+
 > Tired of those standard click ‘n drop menus? Need something with a little more pazazz? Yes & yes! Here’s the answer to your prayers, the jQuery Slider Menu.
 
 **If you're viewing this at https://github.com/bmarshall511/slider-menu.jquery.js, you're reading the documentation for the master branch.
@@ -12,6 +14,8 @@
 Download the script [here](https://github.com/bmarshall511/slider-menu.jquery.js/archive/latest.zip) and include it (unless you are packaging scripts somehow else):
 
 ```html
+<link href="/path/to/slider-menu.jquery.css" rel="stylesheet">
+<link href="/path/to/slider-menu.theme.jquery.css" rel="stylesheet">
 <script src="/path/to/slider-menu.jquery.js"></script>
 ```
 

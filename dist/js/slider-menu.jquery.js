@@ -9,7 +9,8 @@
   $.fn.sliderMenu = function( options ) {
     var settings = $.extend({
 
-    }, options ), methods = {};
+    }, options ),
+    elements = {}, methods = {};
 
     methods.init = function( element ) {
       var $menu = this.buildMenu( element.clone() );
@@ -42,20 +43,20 @@
 
     methods.initMenu = function( $menu ) {
       $( $menu ).on( 'click', '.slider-menu__link', function( event ) {
+        elements.$container  = $( this ).closest( '.slider-menu' );
+        elements.$parentItem = $( this ).parent( '.slider-menu__item' );
+        elements.$parentMenu = elements.$parentItem.parent( '.slider-menu__menu' );
+        elements.$childMenu  = $( '> .slider-menu__menu', elements.$parentItem );
+
         methods.clickHandler( event, $( this ) );
       });
     };
 
     methods.clickHandler = function( event, $link ) {
-      var $container   = $link.closest( '.slider-menu' ),
-          $parentItem  = $link.parent( '.slider-menu__item' ),
-          $parentMenu  = $parentItem.parent( '.slider-menu__menu' ),
-          $childMenu   = $( '> .slider-menu__menu', $parentItem );
-
-      if ( $childMenu.length || $link.hasClass( 'slider-menu__back' ) ) {
+      if ( elements.$childMenu.length || $link.hasClass( 'slider-menu__back' ) ) {
         event.preventDefault();
 
-        if ( $parentItem.data( 'vertical' ) ) {
+        if ( elements.$parentItem.data( 'vertical' ) ) {
           methods.toggleExpand( $link );
         } else {
           methods.slideController( $link );
@@ -64,35 +65,26 @@
     };
 
     methods.toggleExpand = function( $link ) {
-      var $container   = $link.closest( '.slider-menu' ),
-          $parentItem  = $link.parent( '.slider-menu__item' ),
-          $parentMenu  = $parentItem.parent( '.slider-menu__menu' ),
-          $childMenu   = $( '> .slider-menu__menu', $parentItem );
-
-      if ( $childMenu.is( ':visible' ) ) {
+      if ( elements.$childMenu.is( ':visible' ) ) {
         // Hide
-        $parentMenu.addClass( 'slider-menu--active' );
-        $childMenu.hide();
-        $container.css( 'height', $parentMenu.height() );
+        elements.$parentMenu.addClass( 'slider-menu--active' );
+        elements.$childMenu.hide();
+        elements.$container.css( 'height', elements.$parentMenu.height() );
 
         $link.removeClass( 'slider-menu__link--active-link' );
       } else {
         // Show
-        $childMenu.show();
-        $container.css( 'height', $parentMenu.height() );
+        elements.$childMenu.show();
+        elements.$container.css( 'height', elements.$parentMenu.height() );
 
         $link.addClass( 'slider-menu__link--active-link' );
       }
     };
 
     methods.slideController = function( $link ) {
-      var $container   = $link.closest( '.slider-menu' ),
-          $parentItem  = $link.parent( '.slider-menu__item' ),
-          $parentMenu  = $parentItem.parent( '.slider-menu__menu' );
-
-      $( '.slider-menu__item--vertical .slider-menu__menu', $container ).hide();
-      $( '.slider-menu__item--vertical .slider-menu__link', $container ).removeClass( 'slider-menu__link--active-link' );
-      $parentMenu.removeClass( 'slider-menu--active' );
+      $( '.slider-menu__item--vertical .slider-menu__menu', elements.$container ).hide();
+      $( '.slider-menu__item--vertical .slider-menu__link', elements.$container ).removeClass( 'slider-menu__link--active-link' );
+      elements.$parentMenu.removeClass( 'slider-menu--active' );
 
       if ( $link.hasClass( 'slider-menu__back' ) ) {
         methods.slide( $link, true );
@@ -102,17 +94,14 @@
     };
 
     methods.slide = function( $link, back ) {
-      var $container  = $link.closest( '.slider-menu' ),
-          $nav        = $( '.slider-menu__container', $container ),
-          $parentItem = $link.parent( '.slider-menu__item' ),
-          $parentMenu = $parentItem.parent( '.slider-menu__menu' ),
-          $activeMenu = back ? $parentMenu.parent().parent() : $( '> .slider-menu__menu', $parentItem ),
-          currentLeft = back ? parseInt( $nav.attr( 'data-left' ) ) + 100 : parseInt( $nav.attr( 'data-left' ) ) - 100;
+      var $nav        = $( '.slider-menu__container', elements.$container ),
+          $activeMenu = back ? elements.$parentMenu.parent().parent() : $( '> .slider-menu__menu', elements.$parentItem ),
+          currentLeft = back ? parseInt( $nav.attr( 'data-left' ), 10 ) + 100 : parseInt( $nav.attr( 'data-left' ), 10 ) - 100;
 
       $activeMenu.addClass( 'slider-menu--active' )
                  .parents( '.slider-menu__menu' ).addClass( 'slider-menu--active' );
 
-      $container.css( 'height', $activeMenu.height() );
+      elements.$container.css( 'height', $activeMenu.height() );
 
       $nav.attr( 'data-left', currentLeft )
           .css( 'left', currentLeft + '%' );
@@ -122,4 +111,4 @@
       methods.init( $( this ) );
     });
   };
-})( jQuery );
+}( jQuery ));
