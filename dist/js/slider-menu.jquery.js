@@ -8,52 +8,44 @@
 
   $.fn.sliderMenu = function( options ) {
     var settings = $.extend({
-
+      back: '<span>Back</span>'
     }, options ),
     elements = {}, methods = {};
 
-    methods.init = function( element ) {
+    methods.initMenu = function( element ) {
       var $menu = this.buildMenu( element.clone() );
       element.replaceWith(  $menu  );
-      this.initMenu( $menu );
-    };
 
-    methods.buildMenu = function( $menu ) {
-      var $newMenu = $( '<div>' ).addClass( 'slider-menu' ),
-          $nav     = $( '<nav>' ).attr({
-                                   'class'      : 'slider-menu__container',
-                                   'role'       : 'navigation',
-                                   'aria-label' : 'Menu',
-                                   'data-left'  : 0
-                                 });
-
-      $menu.attr( 'class', 'slider-menu__menu' );
-      $( 'ul', $menu ).addClass( 'slider-menu__menu' )
-                      .prepend( '<li><a href="#" class="slider-menu__back"><span class="slider-menu__text">Back</span></a>' )
-                      .parent()
-                      .addClass( 'slider-menu--has-children' );
-      $( 'li', $menu ).addClass( 'slider-menu__item' );
-      $( 'a', $menu ).addClass( 'slider-menu__link' );
-      $nav.html( $menu );
-      $( '[data-vertical="true"]', $nav ).addClass( 'slider-menu__item--vertical' );
-      $newMenu.html( $nav );
-
-      return $newMenu;
-    };
-
-    methods.initMenu = function( $menu ) {
       $( $menu ).on( 'click', '.slider-menu__link', function( event ) {
         elements.$container  = $( this ).closest( '.slider-menu' );
-        elements.$parentItem = $( this ).parent( '.slider-menu__item' );
-        elements.$parentMenu = elements.$parentItem.parent( '.slider-menu__menu' );
-        elements.$childMenu  = $( '> .slider-menu__menu', elements.$parentItem );
+        elements.$parentItem = $( this ).parent( 'li' );
+        elements.$parentMenu = elements.$parentItem.parent( 'ul' );
+        elements.$childMenu  = $( '> ul', elements.$parentItem );
 
         methods.clickHandler( event, $( this ) );
       });
     };
 
+    methods.buildMenu = function( $menu ) {
+      var $newMenu = $( '<div>' ).addClass( 'slider-menu' ),
+          $nav     = $( '<nav>' ).attr({
+                                   'role'       : 'navigation',
+                                   'aria-label' : 'Menu',
+                                   'data-left'  : 0
+                                 });
+
+      $( 'ul', $menu ).prepend( '<li><a href="#" class="slider-menu-back">' + settings.back + '</a>' )
+                      .parent()
+                      .addClass( 'slider-menu--has-children' );
+      $( 'a', $menu ).addClass( 'slider-menu__link' );
+      $nav.html( $menu );
+      $newMenu.html( $nav );
+
+      return $newMenu;
+    };
+
     methods.clickHandler = function( event, $link ) {
-      if ( elements.$childMenu.length || $link.hasClass( 'slider-menu__back' ) ) {
+      if ( elements.$childMenu.length || $link.hasClass( 'slider-menu-back' ) ) {
         event.preventDefault();
 
         if ( elements.$parentItem.data( 'vertical' ) ) {
@@ -68,13 +60,13 @@
       if ( elements.$childMenu.is( ':visible' ) ) {
         // Hide
         elements.$parentMenu.addClass( 'slider-menu--active' );
-        elements.$childMenu.hide();
+        elements.$childMenu.removeClass( 'slider-menu--active' );
         elements.$container.css( 'height', elements.$parentMenu.height() );
 
         $link.removeClass( 'slider-menu__link--active-link' );
       } else {
         // Show
-        elements.$childMenu.show();
+        elements.$childMenu.addClass( 'slider-menu--active' );
         elements.$container.css( 'height', elements.$parentMenu.height() );
 
         $link.addClass( 'slider-menu__link--active-link' );
@@ -82,11 +74,11 @@
     };
 
     methods.slideController = function( $link ) {
-      $( '.slider-menu__item--vertical .slider-menu__menu', elements.$container ).hide();
-      $( '.slider-menu__item--vertical .slider-menu__link', elements.$container ).removeClass( 'slider-menu__link--active-link' );
+      $( '[data-vertical="true"] ul', elements.$container ).removeClass( 'slider-menu--active' );
+      $( '[data-vertical="true"] .slider-menu__link', elements.$container ).removeClass( 'slider-menu__link--active-link' );
       elements.$parentMenu.removeClass( 'slider-menu--active' );
 
-      if ( $link.hasClass( 'slider-menu__back' ) ) {
+      if ( $link.hasClass( 'slider-menu-back' ) ) {
         methods.slide( $link, true );
       } else {
         methods.slide( $link );
@@ -94,21 +86,21 @@
     };
 
     methods.slide = function( $link, back ) {
-      var $nav        = $( '.slider-menu__container', elements.$container ),
-          $activeMenu = back ? elements.$parentMenu.parent().parent() : $( '> .slider-menu__menu', elements.$parentItem ),
+      var $nav        = $( 'nav', elements.$container ),
+          $activeMenu = back ? elements.$parentMenu.parent().parent() : $( '> ul', elements.$parentItem ),
           currentLeft = back ? parseInt( $nav.attr( 'data-left' ), 10 ) + 100 : parseInt( $nav.attr( 'data-left' ), 10 ) - 100;
 
       $activeMenu.addClass( 'slider-menu--active' )
-                 .parents( '.slider-menu__menu' ).addClass( 'slider-menu--active' );
+                 .parents( 'ul' ).addClass( 'slider-menu--active' );
 
-      elements.$container.css( 'height', $activeMenu.height() );
+      elements.$container.css( 'height', $activeMenu.outerHeight() );
 
       $nav.attr( 'data-left', currentLeft )
           .css( 'left', currentLeft + '%' );
     };
 
     return $( this ).each( function() {
-      methods.init( $( this ) );
+      methods.initMenu( $( this ) );
     });
   };
 }( jQuery ));

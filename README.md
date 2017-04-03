@@ -34,6 +34,11 @@ Transform a list menu into a slider menu:
 
 ```javascript
 $( '.my-menu' ).sliderMenu();
+
+// Change the slide back link.
+$( '.my-menu' ).sliderMenu({
+  back: '<span class="slider-menu__text">Back</span>'
+});
 ```
 
 ## Contributing
