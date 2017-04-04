@@ -82,6 +82,7 @@ $bg-color:        #fff    !default;
     -moz-mask-size: cover;
     -webkit-mask-size: cover;
     mask-size: cover;
+    text-indent: -9999px;
     width: 16px;
   }
 
@@ -162,7 +163,8 @@ $bg-color:        #fff    !default;
   .slider-menu-children > a::before,
   .slider-menu-children > a:hover::before,
   [data-vertical="true"].slider-menu-children > a.slider-menu-open::before,
-  .slider-menu-back span {
+  .slider-menu-back span,
+  .slider-menu-back:hover span {
     background-color: transparent;
     background-repeat: no-repeat;
   }
