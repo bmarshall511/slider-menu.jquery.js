@@ -37,7 +37,7 @@
   "homepage": "https://bmarshall511.github.io/slider-menu.jquery.js/",
   "repository": "https://github.com/bmarshall511/slider-menu.jquery.js",
   "dependencies": {
-    "jquery": ">=1.5"
+    "jquery": ">=3.0.0"
   },
   "devDependencies": {
     "compass-options": "^0.1.1",
