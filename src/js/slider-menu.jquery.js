@@ -1,7 +1,7 @@
 /**
  * jQuery Slider Menu Plugin
  *
- * @version 1.2.0
+ * @version 1.2.1
  */
 ( function( $ ) {
   'use strict';
