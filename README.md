@@ -1,10 +1,13 @@
-# jQuery Slider Menu
+# jQuery Slider Menu [![npm version](https://badge.fury.io/js/slider-menu.svg)](https://badge.fury.io/js/slider-menu)
 
 [![Code Climate](https://codeclimate.com/github/bmarshall511/slider-menu.jquery.js.svg)](https://codeclimate.com/github/bmarshall511/slider-menu.jquery.js)
 [![Build Status](https://travis-ci.org/bmarshall511/slider-menu.jquery.js.svg?branch=master)](https://travis-ci.org/bmarshall511/slider-menu.jquery.js)
 [![dependencies Status](https://david-dm.org/bmarshall511/slider-menu.jquery.js/status.svg)](https://david-dm.org/bmarshall511/slider-menu.jquery.js)
 [![devDependencies Status](https://david-dm.org/bmarshall511/slider-menu.jquery.js/dev-status.svg)](https://david-dm.org/bmarshall511/slider-menu.jquery.js?type=dev)
 [![Join the chat at https://gitter.im/slider-menu-jquery-js/Lobby](https://badges.gitter.im/slider-menu-jquery-js/Lobby.svg)](https://gitter.im/slider-menu-jquery-js/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gratipay User](https://img.shields.io/gratipay/user/bmarshall511.svg)](https://gratipay.com/~bmarshall511/)
+[![Beerpay](https://beerpay.io/bmarshall511/slider-menu.jquery.js/badge.svg?style=flat)](https://beerpay.io/bmarshall511/slider-menu.jquery.js)
+[![Beerpay](https://beerpay.io/bmarshall511/slider-menu.jquery.js/make-wish.svg?style=flat)](https://beerpay.io/bmarshall511/slider-menu.jquery.js?focus=wish)
 
 > Tired of those standard click ‘n drop menus? Need something with a little more pazazz? Yes & yes! Here’s the answer to your prayers, the jQuery Slider Menu.
 
